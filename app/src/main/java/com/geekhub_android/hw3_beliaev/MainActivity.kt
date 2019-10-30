@@ -40,14 +40,14 @@ class MainActivity : AppCompatActivity() {
         phones.add(phone8)
     }
 
-    val phone1 = Phone("Apple", "Iphone X", R.drawable.xperia)
+    val phone1 = Phone("Apple", "Iphone X", R.drawable.iphonex)
     val phone2 = Phone("Sony", "Xperia 1", R.drawable.xperia)
-    val phone3 = Phone("Google", "Pixel 4", R.drawable.xperia)
-    val phone4 = Phone("Samsung", "Galaxy Note 10", R.drawable.xperia)
-    val phone5 = Phone("OnePlus", "7T", R.drawable.xperia)
-    val phone6 = Phone("Asus", "ZenPhone 5", R.drawable.xperia)
-    val phone7 = Phone("Nokia", "Lumia 640", R.drawable.xperia)
-    val phone8 = Phone("Microsoft", "SurfacePhone", R.drawable.xperia)
+    val phone3 = Phone("Google", "Pixel 4", R.drawable.pixel)
+    val phone4 = Phone("Samsung", "Galaxy Note 10", R.drawable.note10)
+    val phone5 = Phone("OnePlus", "7 Pro", R.drawable.oneplus)
+    val phone6 = Phone("Asus", "ZenPhone 6", R.drawable.zenphone)
+    val phone7 = Phone("Nokia", "Lumia 640", R.drawable.lumia)
+    val phone8 = Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone)
 
 }
 

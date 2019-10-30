@@ -10,6 +10,7 @@ public class Phone {
         this.brand = brand;
         this.model = model;
         this.image = image;
+        System.out.println("Image: "+ image + "-------------------------------");
     }
 
     //Getters
