@@ -1,26 +1,8 @@
 <resources>
     <string name="app_name">HW3_Beliaev</string>
-    <string name="testing">
-        f
-        f
-        f
-        f
-        f
-        f
-        ff
-        f
-        f
 
-        ff
-        f
-        f
-        ff
-        fff
-        f
-
-    </string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="header">header</string>
+    <string name="content">content</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
