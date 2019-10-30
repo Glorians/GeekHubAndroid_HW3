@@ -13,13 +13,17 @@ import java.util.List;
 
 class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
+    public interface OnItemClickListener {
+        void onItemClick(Phone phone);
+    }
+
     private LayoutInflater inflater;
     private List<Phone> phones;
 
 
     Adapter(Context context, List<Phone> phones) {
         this.phones = phones;
-        this.inflater = LayoutInflater.from(context);
+        this.inflater = LayoutInflater.from(context); // создаем view элемент с layout
     }
 
     @Override
@@ -47,11 +51,25 @@ class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView imageView;
         final TextView brandView, modelView;
+
+
         ViewHolder(View view){
             super(view);
+
+//Пытался сделать обработку клика (Неудачно) Help
+
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//               @Override
+//               public void onClick(View v) {
+//                   Toast.makeText(context,"clicked="+ getPosition(),Toast.LENGTH_SHORT).show();
+//               }
+//            });
+
             imageView = (ImageView)view.findViewById(R.id.image);
             brandView = (TextView) view.findViewById(R.id.brand);
             modelView = (TextView) view.findViewById(R.id.model);
         }
     }
+
+
 }
