@@ -7,65 +7,76 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_list.*
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
+private val phones: ArrayList<Phone> = ArrayList<Phone>() // Список телефонов
 
 class ListFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        inflater.inflate(R.layout.fragment_list, container, false)
+
+    override fun onViewCreated (view: View, savedInstanceState: Bundle?) {
+        setInitialData() // Инициализируем данные
+        main_list.layoutManager = LinearLayoutManager(context)
+        main_list.adapter = Adapter(context, phones)
+
+
     }
 
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
+    // Слабонервным не смотреть
+    private fun setInitialData() {
+        phones.add(phone1)
+        phones.add(phone2)
+        phones.add(phone3)
+        phones.add(phone4)
+        phones.add(phone5)
+        phones.add(phone6)
+        phones.add(phone7)
+        phones.add(phone8)
+        phones.add(phone9)
+        phones.add(phone10)
+        phones.add(phone11)
+        phones.add(phone12)
+        phones.add(phone13)
+        phones.add(phone14)
+        phones.add(phone15)
+        phones.add(phone16)
+        phones.add(phone17)
+        phones.add(phone18)
+        phones.add(phone19)
+        phones.add(phone20)
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
-        }
-    }
+    val phone1 = Phone("Apple", "Iphone X", R.drawable.iphonex)
+    val phone2 = Phone("Sony", "Xperia 1", R.drawable.xperia)
+    val phone3 = Phone("Google", "Pixel 4", R.drawable.pixel)
+    val phone4 = Phone("Samsung", "Galaxy Note 10", R.drawable.note10)
+    val phone5 = Phone("OnePlus", "7 Pro", R.drawable.oneplus)
+    val phone6 = Phone("Asus", "ZenPhone 6", R.drawable.zenphone)
+    val phone7 = Phone("Nokia", "Lumia 640", R.drawable.lumia)
+    val phone8 = Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone)
+    val phone9 = Phone("Samsung", "Galaxy Note 10", R.drawable.note10)
+    val phone10 = Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone)
+    val phone11 = Phone("Samsung", "Galaxy Note 10", R.drawable.note10)
+    val phone12 = Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone)
+    val phone13 = Phone("Apple", "Iphone X", R.drawable.iphonex)
+    val phone14 = Phone("Google", "Pixel 4", R.drawable.pixel)
+    val phone15 = Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone)
+    val phone16 = Phone("Asus", "ZenPhone 6", R.drawable.zenphone)
+    val phone17 = Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone)
+    val phone18 = Phone("Google", "Pixel 4", R.drawable.pixel)
+    val phone19 = Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone)
+    val phone20 = Phone("Apple", "Iphone X", R.drawable.iphonex)
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
 
 
-    interface OnFragmentInteractionListener {
-        fun onFragmentInteraction(uri: Uri)
-    }
 
-    companion object {
 
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
+
 }
