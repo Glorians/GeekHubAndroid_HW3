@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_list.*
@@ -22,10 +23,13 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated (view: View, savedInstanceState: Bundle?) {
         setInitialData() // Инициализируем данные
+
         main_list.layoutManager = LinearLayoutManager(context)
-        main_list.adapter = Adapter(context, phones)
-
-
+        main_list.adapter = MainAdapter(phones, object : MainAdapter.Callback {
+            override fun onItemClicked(item: Phone) {
+                Toast.makeText(context, item.brand, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     // Слабонервным не смотреть
