@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_details.*
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
@@ -24,34 +26,36 @@ class ListFragment : Fragment() {
         main_list.layoutManager = LinearLayoutManager(context)
         main_list.adapter = MainAdapter(phones, object : MainAdapter.Callback {
             override fun onItemClicked(item: Phone) {
-                Toast.makeText(context, item.brand, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, resources.getString(item.details), Toast.LENGTH_SHORT).show()
+                println(resources.getString(item.details))
+//                childFragmentManager.beginTransaction().replace(R.id.fragment_details, fragment_details).commit()
+//                childFragmentManager.beginTransaction().replace(R.id.fragment_details, DetailsFragment.getInstance()).commit()
             }
         })
     }
 
     private val phones = listOf(
-        Phone("Apple", "Iphone X", R.drawable.iphonex),
-        Phone("Sony", "Xperia 1", R.drawable.xperia),
-        Phone("Google", "Pixel 4", R.drawable.pixel),
-        Phone("Samsung", "Galaxy Note 10", R.drawable.note10),
-        Phone("OnePlus", "7 Pro", R.drawable.oneplus),
-        Phone("Asus", "ZenPhone 6", R.drawable.zenphone),
-        Phone("Nokia", "Lumia 640", R.drawable.lumia),
-        Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone),
-        Phone("Asus", "ZenPhone 6", R.drawable.zenphone),
-        Phone("Apple", "Iphone X", R.drawable.iphonex),
-        Phone("Asus", "ZenPhone 6", R.drawable.zenphone),
-        Phone("Google", "Pixel 4", R.drawable.pixel),
-        Phone("Sony", "Xperia 1", R.drawable.xperia),
-        Phone("OnePlus", "7 Pro", R.drawable.oneplus),
-        Phone("Samsung", "Galaxy Note 10", R.drawable.note10),
-        Phone("Apple", "Iphone X", R.drawable.iphonex),
-        Phone("OnePlus", "7 Pro", R.drawable.oneplus),
-        Phone("Asus", "ZenPhone 6", R.drawable.zenphone),
-        Phone("Nokia", "Lumia 640", R.drawable.lumia),
-        Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone),
-        Phone("Sony", "Xperia 1", R.drawable.xperia)
-
+        Phone("Apple", "Iphone X", R.drawable.iphonex, R.string.str_IphoneX_Details),
+        Phone("Sony", "Xperia 1", R.drawable.xperia, R.string.str_Xperia1_Details),
+        Phone("Google", "Pixel 4", R.drawable.pixel, R.string.str_GooglePixel4),
+        Phone("Samsung", "Galaxy Note 10", R.drawable.note10, R.string.str_SamsungNote10_Details),
+        Phone("OnePlus", "7 Pro", R.drawable.oneplus, R.string.str_OnePlus7Pro),
+        Phone("Asus", "ZenPhone 6", R.drawable.zenphone, R.string.str_ZenPhone6),
+        Phone("Nokia", "Lumia 640", R.drawable.lumia, R.string.str_Lumia640),
+        Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone, R.string.str_SurfacePhone),
+        Phone("Asus", "ZenPhone 6", R.drawable.zenphone, R.string.str_ZenPhone6),
+        Phone("Apple", "Iphone X", R.drawable.iphonex, R.string.str_IphoneX_Details),
+        Phone("Asus", "ZenPhone 6", R.drawable.zenphone, R.string.str_ZenPhone6),
+        Phone("Google", "Pixel 4", R.drawable.pixel, R.string.str_GooglePixel4),
+        Phone("Sony", "Xperia 1", R.drawable.xperia, R.string.str_Xperia1_Details),
+        Phone("OnePlus", "7 Pro", R.drawable.oneplus, R.string.str_OnePlus7Pro),
+        Phone("Samsung", "Galaxy Note 10", R.drawable.note10, R.string.str_SamsungNote10_Details),
+        Phone("Apple", "Iphone X", R.drawable.iphonex, R.string.str_IphoneX_Details),
+        Phone("OnePlus", "7 Pro", R.drawable.oneplus, R.string.str_OnePlus7Pro),
+        Phone("Asus", "ZenPhone 6", R.drawable.zenphone, R.string.str_ZenPhone6),
+        Phone("Nokia", "Lumia 640", R.drawable.lumia, R.string.str_Lumia640),
+        Phone("Microsoft", "SurfacePhone", R.drawable.surfacephone, R.string.str_SurfacePhone),
+        Phone("Sony", "Xperia 1", R.drawable.xperia, R.string.str_Xperia1_Details)
     )
 
 }

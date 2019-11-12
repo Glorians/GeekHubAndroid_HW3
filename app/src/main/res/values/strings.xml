@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">HW3_Beliaev</string>
+    <string name="nothing_selected">NONE</string>
+    <string name="str_IphoneX_Details">It\'s a revolution johnny</string>
+    <string name="str_Xperia1_Details">Sonyyyyyyyyyyyy, very nice</string>
+    <string name="str_SamsungNote10_Details">BOOM!!!</string>
+    <string name="str_GooglePixel4">Google, google, google</string>
+    <string name="str_OnePlus7Pro">Made in China</string>
+    <string name="str_ZenPhone6">Asus O_O</string>
+    <string name="str_Lumia640">Dead, :(</string>
+    <string name="str_SurfacePhone">Dreams</string>
 
-    <string name="header">header</string>
-    <string name="content">content</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="nothing_selected">Нечего не выбрано </string>
 
 </resources>
