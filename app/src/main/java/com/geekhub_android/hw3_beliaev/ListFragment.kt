@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_details.*
 import kotlinx.android.synthetic.main.fragment_list.*
+import androidx.fragment.app.FragmentManager
 
 
 class ListFragment : Fragment() {
@@ -26,12 +27,25 @@ class ListFragment : Fragment() {
         main_list.layoutManager = LinearLayoutManager(context)
         main_list.adapter = MainAdapter(phones, object : MainAdapter.Callback {
             override fun onItemClicked(item: Phone) {
+
                 Toast.makeText(context, resources.getString(item.details), Toast.LENGTH_SHORT).show()
                 println(resources.getString(item.details))
-//                childFragmentManager.beginTransaction().replace(R.id.fragment_details, fragment_details).commit()
-//                childFragmentManager.beginTransaction().replace(R.id.fragment_details, DetailsFragment.getInstance()).commit()
+
+                val detailsFragment =
+                    DetailsFragment.newInstance(item)
+                fragmentManager!!.beginTransaction()
+                    .replace(R.id.fragment_list, detailsFragment, "detailsFragment")
+                    .addToBackStack(null)
+                    .commit()
+
             }
         })
+    }
+
+    companion object {
+        fun newInstance(): ListFragment {
+            return ListFragment()
+        }
     }
 
     private val phones = listOf(

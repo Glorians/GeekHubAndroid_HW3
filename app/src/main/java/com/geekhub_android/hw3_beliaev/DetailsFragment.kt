@@ -18,7 +18,10 @@ class DetailsFragment : Fragment() {
     }
 
 
+    companion object {
+        fun newInstance(phone: Phone): DetailsFragment {
+            return DetailsFragment()
 
-
-
+        }
+    }
 }
